@@ -1,0 +1,72 @@
+---
+import { getCollection, render } from 'astro:content';
+import {SHOW_BUY_BUTTON} from "astro:env/server"
+import Layout from '../../layouts/Layout.astro';
+
+
+export async function getStaticPaths() {
+    const projects = await getCollection('projects');
+    return projects.map((project) => ({
+        params: { id: project.slug },
+        props: { project }
+    }));
+}
+
+const { project } = Astro.props;
+const {data, slug} = project
+const { title, author, description, img, experience, extra } = data;
+const { youtube, website } = extra;
+
+const {Content} = await render(project)
+---
+
+
+
+<Layout title={title}>
+    <div class="flex flex-col md:flex-row gap-12">
+        <aside class="flex flex-col items-center gap-4">
+            <button onclick="history.back()" class="hover:underline opacity-70 text-xl"></button>
+            <!-- <a href="/" class="hover:underline opacity-70 text-xl"> ← Close</a> -->
+            <a href="#" onclick="history.back()">
+                <img transition:name={`img-${slug}`} src={`/${img}`} alt={title} class="rounded w-160 mb-6 transition hover:scale-102" />
+            </a>
+                
+        </aside>
+        <main class="px-4 py-10 max-w-3xl mx-auto">
+            <h1 transition:name={`title-${slug}`} class="text-4xl font-bold mb-4 text-white">{title}</h1>
+            <h3 class="mb-2 text-2xl leading-tight text-white">{author}</h3>
+            <h3 class="text-l text-white mb-4">{experience}</h3>
+            <div class="prose prose-invert">
+                <Content />
+            </div>
+            <div class="">
+                {data.tech && (
+                    <div class="flex flex-wrap gap-4 mt-6">
+                        {data.tech.map(technology => (
+                            <div class="flex items-center gap-2" title={technology.name}>
+                                <img
+                                src={technology.logo}
+                                alt={technology.name}
+                                class="h-10 w-auto"
+                                />
+                                <span class="text-white text-sm whitespace-pre-line">{technology.name}</span>
+                        </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+            <div class="mt-10 flex gap-4">
+              {youtube && (
+                <a href={youtube} target="_blank" rel="noopener noreferrer">Trailer</a>
+              )}
+              {website && (
+                <a href={website} target="_blank" rel="noopener noreferrer">Official Website</a>
+              )}
+            </div>
+        </main>
+    </div>
+
+</Layout>
+<script>
+    
+</script>
