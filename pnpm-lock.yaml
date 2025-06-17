@@ -9,17 +9,17 @@ importers:
   .:
     dependencies:
       '@tailwindcss/vite':
-        specifier: ^4.1.7
+        specifier: 4.1.7
         version: 4.1.7(vite@6.3.5(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1))
       astro:
-        specifier: ^5.8.0
+        specifier: 5.8.0
         version: 5.8.0(@types/node@22.15.21)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.1)(typescript@5.8.3)
       tailwindcss:
-        specifier: ^4.1.7
+        specifier: 4.1.7
         version: 4.1.7
     devDependencies:
       '@tailwindcss/typography':
-        specifier: ^0.5.16
+        specifier: 0.5.16
         version: 0.5.16(tailwindcss@4.1.7)
 
 packages:
