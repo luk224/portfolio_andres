@@ -3,7 +3,7 @@ title: Everywhere
 author: Build a Rocket Boy
 description: Upcoming massively multiplayer online game and game platform with an integrated game creation system.
 img: edge_portada.webp
-experience: May-2023 - Present
+experience: 2021 - Present
 extra:
  youtube: https://www.youtube.com/watch?v=90FNVadJP6s
  website: https://everywhere.game/

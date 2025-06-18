@@ -3,7 +3,7 @@ title: Mindseye
 author: Build a Rocket Boy
 description: Cinematic single-player action thriller set in the near-future city of Redrock, with high-speed driving and explosive combat from director Leslie Benzies.
 img: mindseye_1.webp
-experience: May-2023 - Present
+experience: 2021 - Present
 extra:
  youtube: https://www.youtube.com/watch?v=kMfNQobF_bY
  website: https://www.mindseye.game/
