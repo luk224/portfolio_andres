@@ -10,7 +10,7 @@ export default defineConfig({
   },
   env: {
     schema: {
-      SHOW_BUY_BUTTON: envField.boolean({context: 'server', access: 'public'})
+      
     }
   }
 });
