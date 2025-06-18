@@ -14,74 +14,69 @@ const projects = await(getCollection('projects'))
 			<a href="#skills" class="hover:text-blue-400 transition">Skills</a>
 		</div>
 	</nav>
-	<div class="h-20"></div>
-	<section class="text-center bg-[#1f2a41] py-24">
-		<h2 class="text-center text-5xl font-extrabold mb-20">Demo Reel</h2>
-		<div class="mx-auto max-w-5xl aspect-video border=none">
-			<iframe 
-			class="w-full h-full rounded-xl shadow-lg"
-			
-			src="https://www.youtube.com/embed/eMfcm_q7V80?si=KbWdc0T--wQVgEh5" 
-			title="Demo Reel"
-			
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowfullscreen>
-			</iframe>
-		</div>
-	</section>
-	<main>
-		
-	</main>
-	<section id="projects" aria-label="Participated in projects" class="bg-[#0B1120] py-24">
-		<h1 class="text-center text-5xl font-extrabold mb-20">
-			Experience 🦴</h1>
-		<div class="px-4 md:px-12 lg:px-20 mx-auto max-w-screen-xl">
-			<div class="grid gap-6 md:grid-cols-2 auto-rows-auto">
-				{
-					projects.map(project => {
-						const {slug, data} = project
-						const {title, author, description, img, experience, extra} = data
-						const {youtube, website} = extra
-						return (
-							<article class="w-full flex gap-6 flex-wrap">
-								<div class="w-full md:w-60 shrink-0">
-								<a href={`/project/${slug}`}class="mb-2 xl:mb-0 transition hover:scale-105 ">
-									<img
-										transition:name={`img-${slug}`}	
-										class="h-72 w-auto object-cover rounded"
-										src={`/${img}`}
-										alt ={title}/>
-								</a>
-								</div>
-								<div class="relative flex flex-col justify-start flex-1">
-									<div>
-										<h2 transition:name={`title-${slug}`} class="mb-2 text-3xl font-bold leading-tight text-white">{title}</h2>
-										<h3 class="mb-2 text-2xl leading-tight text-white">{author}</h3>
-										<h5 class="mb-4 text-l leading-tight text-white">{experience}</h5>
-										<p class="mb-2 text-gray-300 max-w-sm">{description}</p>
-									</div>
-									<div class="bottom-2 flex gap-4  justify-start">
-										<a href={youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-											<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 transition hover:scale-150" viewBox="0 0 24 24" fill="currentColor">
-												<path d="M19.615 3.184C21.116 3.464 22.245 4.716 22.5 6.253c.291 1.71.291 5.277.291 5.277s0 3.566-.291 5.277c-.255 1.537-1.384 2.789-2.885 3.069C17.578 20.5 12 20.5 12 20.5s-5.578 0-7.615-.624C2.884 19.596 1.755 18.344 1.5 16.807.961 14.697.961 11.53.961 11.53s0-3.566.291-5.277c.255-1.537 1.384-2.789 2.885-3.069C6.422 1.5 12 1.5 12 1.5s5.578 0 7.615.624zM9.75 15.27l6.25-3.77-6.25-3.77v7.54z"/>
-											</svg>
-										</a>
-										<a href={website} target="_blank" rel="noopener noreferrer" aria-label="Website">
-											<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 transition hover:scale-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 0c2.5 0 4.5 4.5 4.5 10S14.5 22 12 22s-4.5-4.5-4.5-10S9.5 2 12 2z" />
-											</svg>
-										</a>
-									</div>
-								</div>
-							</article>
-						)
-					})
-				}
+	<div class="px-2 md:px-4 lg:px-20 mx-auto max-w-screen-xl">
+		<section class="text-center bg-[#1f2a41] py-24">
+			<h2 class="text-center text-5xl font-extrabold mb-20">Demo Reel</h2>
+			<div class="mx-auto max-w-5xl aspect-video border=none">
+				<iframe 
+				class="w-full h-full rounded-xl shadow-lg"
+				
+				src="https://www.youtube.com/embed/eMfcm_q7V80?si=KbWdc0T--wQVgEh5" 
+				title="Demo Reel"
+				
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen>
+				</iframe>
 			</div>
-		</div>
-	</section>
-	<section id="studies" aria-label="Education" class="bg-[#1f2a41] py-24">
-		<div class="px-4 md:px-12 lg:px-20 mx-auto max-w-screen-xl">
+		</section>
+		<section id="projects" aria-label="Participated in projects" class="bg-[#0B1120]">
+			<h1 class="text-center text-5xl font-extrabold mb-20">Experience 🦴</h1>
+				<div class="px-8 md:px-4">
+					<div class="grid gap-6 md:grid-cols-2 auto-rows-auto">
+						{
+							projects.map(project => {
+								const {slug, data} = project
+								const {title, author, description, img, experience, extra} = data
+								const {youtube, website} = extra
+								return (
+									<article class="w-full flex gap-6 flex-wrap">
+										<div class="w-full md:w-60 shrink-0">
+										<a href={`/project/${slug}`}class="mb-2 xl:mb-0 transition hover:scale-105 ">
+											<img
+												transition:name={`img-${slug}`}	
+												class="h-72 w-auto object-cover rounded"
+												src={`/${img}`}
+												alt ={title}/>
+										</a>
+										</div>
+										<div class="relative flex flex-col justify-start flex-1">
+											<div>
+												<h2 transition:name={`title-${slug}`} class="mb-2 text-3xl font-bold leading-tight text-white">{title}</h2>
+												<h3 class="mb-2 text-2xl leading-tight text-white">{author}</h3>
+												<h5 class="mb-4 text-l leading-tight text-white">{experience}</h5>
+												<p class="mb-2 text-gray-300 max-w-sm">{description}</p>
+											</div>
+											<div class="bottom-2 flex gap-4  justify-start">
+												<a href={youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+													<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 transition hover:scale-150" viewBox="0 0 24 24" fill="currentColor">
+														<path d="M19.615 3.184C21.116 3.464 22.245 4.716 22.5 6.253c.291 1.71.291 5.277.291 5.277s0 3.566-.291 5.277c-.255 1.537-1.384 2.789-2.885 3.069C17.578 20.5 12 20.5 12 20.5s-5.578 0-7.615-.624C2.884 19.596 1.755 18.344 1.5 16.807.961 14.697.961 11.53.961 11.53s0-3.566.291-5.277c.255-1.537 1.384-2.789 2.885-3.069C6.422 1.5 12 1.5 12 1.5s5.578 0 7.615.624zM9.75 15.27l6.25-3.77-6.25-3.77v7.54z"/>
+													</svg>
+												</a>
+												<a href={website} target="_blank" rel="noopener noreferrer" aria-label="Website">
+													<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 transition hover:scale-150" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+														<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 0c2.5 0 4.5 4.5 4.5 10S14.5 22 12 22s-4.5-4.5-4.5-10S9.5 2 12 2z" />
+													</svg>
+												</a>
+											</div>
+										</div>
+									</article>
+								)
+							})
+						}
+					</div>
+				</div>
+		</section>
+		<section id="studies" aria-label="Education" class="bg-[#1f2a41] py-24">
 			<h2 class="text-center text-5xl font-extrabold mb-20 ">Studies 🎓</h2>
 			<div class="space-y-12">
 				<!-- Lightbox Academy -->
@@ -105,8 +100,6 @@ const projects = await(getCollection('projects'))
 						</div>
 					</div>	
 				</div>
-				
-
 				<!-- Universidad Rey Juan Carlos -->
 				<div class="bg-[#18202e] rounded-xl p-6 shadow-md"> 
 					<div class="flex gap-6 items-start">
@@ -139,41 +132,47 @@ const projects = await(getCollection('projects'))
 							<p class="text-gray-300">Instructor: Lincoln Margison</p>
 						</div>
 					</div>
+			</div>
+		</section>
+		<section id="skills" aria-label="Skills" class="bg-[#0B1120] py-24">
+			<div class="px-2 md:px-12 lg:px-20 mx-auto max-w-screen-xl">
+				<h2 class="text-center text-5xl font-extrabold mb-20">Skills 🧠</h2>
+				<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
+				<div>
+					<img src="/logo/unreal.webp" alt="Unreal Engine" class="h-12 w-12 object-contain mx-auto mb-2"/>
+					<p class="text-white">Unreal Engine</p>
+				</div>
+				<div>
+					<img src="/logo/maya.webp" alt="Autodesk Maya" class="h-12 w-12 object-contain mx-auto mb-2" />
+					<p class="text-white">Maya</p>
+				</div>
+				<div>
+					<img src="/logo/python_logo.webp" alt="Python" class="h-12 w-12 object-contain mx-auto mb-2" />
+					<p class="text-white">Python</p>
+				</div>
+				<div>
+					<img src="/logo/mgear.png" alt="mGear" class="h-12 w-12 object-contain mx-auto mb-2"/>
+					<p class="text-white">mGear</p>
+				</div>
+				<div>
+					<img src="/logo/mobu.webp" alt="MotionBuilder" class="h-12 w-12 object-contain mx-auto mb-2" />
+					<p class="text-white">Motion Builder</p>
+				</div>
+				<div>
+					<img src="/logo/xSens.webp" alt="xSens" class="h-12 w-12 object-contain mx-auto mb-2" />
+					<p class="text-white">xSens Mocap</p>
+				</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	<section id="skills" aria-label="Skills" class="bg-[#0B1120] py-24">
-		<div class="px-4 md:px-12 lg:px-20 mx-auto max-w-screen-xl">
-			<h2 class="text-center text-5xl font-extrabold mb-20">Skills 🧠</h2>
-			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
-			<div>
-				<img src="/logo/unreal.webp" alt="Unreal Engine" class="h-12 w-12 object-contain mx-auto mb-2"/>
-				<p class="text-white">Unreal Engine</p>
-			</div>
-			<div>
-				<img src="/logo/maya.webp" alt="Autodesk Maya" class="h-12 w-12 object-contain mx-auto mb-2" />
-				<p class="text-white">Maya</p>
-			</div>
-			<div>
-				<img src="/logo/python_logo.webp" alt="Python" class="h-12 w-12 object-contain mx-auto mb-2" />
-				<p class="text-white">Python</p>
-			</div>
-			<div>
-				<img src="/logo/mgear.png" alt="mGear" class="h-12 w-12 object-contain mx-auto mb-2"/>
-				<p class="text-white">mGear</p>
-			</div>
-			<div>
-				<img src="/logo/mobu.webp" alt="MotionBuilder" class="h-12 w-12 object-contain mx-auto mb-2" />
-				<p class="text-white">Motion Builder</p>
-			</div>
-			<div>
-				<img src="/logo/xSens.webp" alt="xSens" class="h-12 w-12 object-contain mx-auto mb-2" />
-				<p class="text-white">xSens Mocap</p>
-			</div>
-			</div>
-		</div>
-	</section>
+		</section>
+	</div>
+	
+	<main>
+		
+	</main>
+	
+	
+
 	
 		 
 </Layout>

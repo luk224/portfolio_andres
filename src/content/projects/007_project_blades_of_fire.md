@@ -3,7 +3,7 @@ title: Blades of Fire
 author: MercurySteam Entertainment
 description:  Third-person action-adventure video game. Players assume control of a warrior named Aran de Lira, who wields an ancient hammer allowing him to forge various weapons.
 img: blades_of_fire.jpg
-experience: September 2020 - September 2021
+experience: 2020 - 2021
 extra:
  youtube: https://www.youtube.com/watch?v=HbHl2_M_cTQ
  website: https://store.epicgames.com/es-ES/p/blades-of-fire-f8178f
