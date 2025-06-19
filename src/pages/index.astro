@@ -7,16 +7,20 @@ const projects = await(getCollection('projects'))
 ---
 
 <Layout title="Andres Felipe Portfolio">
-	<nav class="fixed top-0 left-0 w-full bg-[#0B1120] shadow-md z-50">
-		<div class="max-w-screen-xl mx-auto px-6 py-4 flex justify-center gap-6 text-white text-2xl font-medium">
-			<a href="#projects" class="hover:text-blue-400 transition">Projects</a>
-			<a href="#studies" class="hover:text-blue-400 transition">Studies</a>
-			<a href="#skills" class="hover:text-blue-400 transition">Skills</a>
+	<nav class="fixed top-0 left-0 w-full bg-gradient-to-b from-[#0B1120]/100 to-[#0B1120]/50 shadow-md z-50">
+		  <div class="max-w-screen-xl mx-auto px-6 py-4 flex justify-center gap-4 text-white text-base md:text-xl lg:text-2xl font-medium">
+			<a href="#reel" class="hover:text-blue-400 hover:underline transition nav-link">Reel</a>
+			<a href="#projects" class="hover:text-blue-400 hover:underline transition nav-link">Projects</a>
+			<a href="#studies" class="hover:text-blue-400 hover:underline transition nav-link">Studies</a>
+			<a href="#skills" class="hover:text-blue-400 hover:underline transition nav-link">Skills</a>
+			<a href="#about" class="hover:text-blue-400 hover:underline transition nav-link">About</a>
 		</div>
 	</nav>
 	<div class="px-2 md:px-4 lg:px-20 mx-auto max-w-screen-xl">
-		<section class="text-center bg-[#0B1120] py-24">
-			<h2 class="text-center text-6xl font-extrabold mb-14">Andrés Felipe</h2>
+		<section id="reel" class="text-center bg-[#0B1120] py-24">
+			<h2 class="text-center text-5xl font-extrabold ">Andrés Felipe</h2>
+			<h3 class="text-center text-2xl mb-14">Technical Animator / Rigger</h3>
+			 
 			<h2 class="text-center text-5xl font-extrabold mb-10">Demo Reel</h2>
 			<div class="mx-auto max-w-5xl aspect-video border=none">
 				<iframe 
@@ -168,13 +172,16 @@ const projects = await(getCollection('projects'))
 		</section>
 		<section id="about" aria-label="About" class="bg-[#0B1120] py-14 pb-20">
 			<div class="px-4 md:px-12 lg:px-20 mx-auto max-w-screen-xl">
-				<h2 class="text-center text-5xl font-extrabold mb-10">About Me 🙋‍♂️</h2>
+				<h2 class="text-center text-5xl font-extrabold mb-10 flex items-center justify-center gap-4">
+					About Me <img src="/me.jpeg" alt="Photo of Andrés Felipe" class="w-28 h-28 rounded-full object-cover shadow" />
+					
+				</h2>
 				<div class="max-w-3xl mx-auto text-center text-white">
 				<p class="text-lg text-gray-300 mb-6">
 					I'm a character rigger and technical artist with professional experience working in Madrid, Spain and Edinburgh, Scotland. I enjoy solving complex problems and developing custom rigs and tools to streamline workflows and support efficient production.
 				</p>
 					<p>Connect with me on 
-						<a href="https://www.linkedin.com/in/andrewsupertramp/" target="_blank" rel="noopener noreferrer" class="inline-block text-blue-400 hover:text-blue-300 transition text-lg font-medium">
+						<a href="https://www.linkedin.com/in/andrewsupertramp/" target="_blank" rel="noopener noreferrer" class="inline-block text-blue-400 hover:text-blue-300 transition text-lg rounded font-medium">
 						LinkedIn</a>
 					</p>
 				</div>
@@ -185,9 +192,8 @@ const projects = await(getCollection('projects'))
 	<main>
 		
 	</main>
-	
-	
 
-	
+
 		 
 </Layout>
+
