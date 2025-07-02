@@ -1,7 +1,7 @@
 ---
 title: Blades of Fire
 author: MercurySteam Entertainment
-description:  Third-person action-adventure video game. Players assume control of a warrior named Aran de Lira, who wields an ancient hammer allowing him to forge various weapons.
+description:  Enhanced rigging and pipeline workflows with custom Python tools and mGear components in Maya, supporting animation and mocap integration.
 img: blades_of_fire.jpg
 experience: 2020 - 2021
 extra:

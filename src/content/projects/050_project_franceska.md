@@ -1,7 +1,7 @@
 ---
 title: Franceska
 author: Lightbox Academy
-description: Short film directed by the 3D Animation School based on one of the most famous novels in the world, "Frankenstein".
+description: Developed full body and facial rigging for Doctor Víctor using mGear in a project led by top industry directors at Lightbox.
 img: franceska-goya.webp
 experience: "2019"
 extra:
@@ -16,4 +16,4 @@ tech:
    logo: /logo/mgear.png
 ---
 
-Creating rigging system for the doctor Víctor, both Body and Facial rigging systems using mGear,
+Developed full body and facial rigging systems for the character Doctor Víctor using mGear, as part of an advanced academy project under the guidance of industry directors at Lightbox. Also contributed to the production of a short film featuring the character.

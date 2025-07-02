@@ -1,7 +1,7 @@
 ---
 title: Everywhere
 author: Build a Rocket Boy
-description: Upcoming massively multiplayer online game and game platform with an integrated game creation system.
+description: Improved rigging workflows and built custom Python tools for Maya, supporting animation and cinematics teams.
 img: edge_portada.webp
 experience: 2021 - Present
 extra:
