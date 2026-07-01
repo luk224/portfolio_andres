@@ -2,25 +2,69 @@
 
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
-const projects = await(getCollection('projects'))
+const projects = (await getCollection('projects')).sort((a, b) => a.slug.localeCompare(b.slug))
 
+const demos = [
+	{
+		title: 'Vehicle Rigging',
+		gif: '/Vehicles_Rigging.gif',
+		alt: 'Gameplay and cinematic footage of rigged vehicles running in Unreal Engine',
+		description: 'Gameplay and cinematic footage of vehicles I rigged, combining Maya and MotionBuilder for the rig work with implementation in Unreal Engine. Built custom tools for steering, wheel rotation, and suspension physics.',
+		tools: [
+			{ name: 'Maya', logo: '/logo/maya.webp' },
+			{ name: 'Motion Builder', logo: '/logo/mobu.webp' },
+			{ name: 'Unreal Engine', logo: '/logo/unreal.webp' },
+		],
+	},
+	{
+		title: 'Hair Simulation',
+		gif: '/Hair_simulation_Seb.gif',
+		alt: 'Gameplay results of a hair simulation system made in Maya and exported to joints',
+		description: 'Gameplay results of a hair simulation system made in Maya and exported to joints. Controlling simulation settings and baking it helped the cinematic team achieve the wanted animation and prevent unexpected simulation results in the final product.',
+		tools: [{ name: 'Maya', logo: '/logo/maya.webp' }],
+	},
+	{
+		title: 'IK Walk Cycle',
+		gif: '/walk_anim.gif',
+		alt: 'Three-legged robot walking along a path using animated IK legs',
+		description: 'A three-legged robot walking along a path, fully driven by IK (Inverse Kinematics) leg animation.',
+		tools: [{ name: 'Maya', logo: '/logo/maya.webp' }],
+	},
+	{
+		title: 'IK Ground Collision',
+		gif: '/IK_Collision.gif',
+		alt: 'IK collision system keeping robot legs from clipping through uneven ground',
+		description: "A custom IK collision system that keeps the robot's legs from clipping through the ground as the terrain changes.",
+		tools: [{ name: 'Maya', logo: '/logo/maya.webp' }],
+	},
+]
+
+const imgDims: Record<string, [number, number]> = {
+	'edge_portada.webp': [1187, 1584],
+	'mindseye_1.webp': [1200, 1600],
+	'franceska-goya.webp': [611, 873],
+	'blades_of_fire.webp': [1200, 1600],
+	'Larian_Studios_Logo_2012.webp': [250, 375],
+};
 ---
 
 <Layout title="Andres Felipe Portfolio">
+	<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
 	<nav class="fixed top-0 left-0 w-full bg-gradient-to-b from-[#0B1120]/100 to-[#0B1120]/50 shadow-md z-50">
 		  <div class="max-w-screen-xl mx-auto px-6 py-4 flex justify-center gap-4 text-white text-base md:text-xl lg:text-2xl font-medium">
 			<a href="#reel" class="hover:text-blue-400 hover:underline transition nav-link">Reel</a>
 			<a href="#projects" class="hover:text-blue-400 hover:underline transition nav-link">Projects</a>
+			<a href="#demos" class="hover:text-blue-400 hover:underline transition nav-link">Demos</a>
 			<a href="#studies" class="hover:text-blue-400 hover:underline transition nav-link">Studies</a>
 			<a href="#skills" class="hover:text-blue-400 hover:underline transition nav-link">Skills</a>
 			<a href="#about" class="hover:text-blue-400 hover:underline transition nav-link">About</a>
 		</div>
 	</nav>
-	<div class="px-2 md:px-4 lg:px-20 mx-auto max-w-screen-xl">
+	<main id="main-content" class="px-2 md:px-4 lg:px-20 mx-auto max-w-screen-xl">
 		<section id="reel" class="text-center bg-[#0B1120] py-24">
-			<h2 class="text-center text-5xl font-extrabold ">Andrés Felipe</h2>
-			<h3 class="text-center text-2xl mb-14">Technical Animator / Rigger</h3>
-			 
+			<h1 class="text-center text-5xl font-extrabold ">Andrés Felipe</h1>
+			<p class="text-center text-2xl mb-14">Technical Animator / Rigger</p>
+
 			<h2 class="text-center text-5xl font-extrabold mb-10">Demo Reel</h2>
 			<div class="mx-auto max-w-5xl aspect-video border=none">
 				<iframe 
@@ -35,7 +79,7 @@ const projects = await(getCollection('projects'))
 			</div>
 		</section>
 		<section id="projects" aria-label="Participated in projects" class="bg-[#1f2a41] py-14">
-			<h1 class="text-center text-5xl font-extrabold mb-20">Experience 🦴</h1>
+			<h2 class="text-center text-5xl font-extrabold mb-20">Experience <span aria-hidden="true">🦴</span></h2>
 				<div class="px-8 md:px-4">
 					<div class="grid gap-6 md:grid-cols-2 auto-rows-auto">
 						{
@@ -48,9 +92,13 @@ const projects = await(getCollection('projects'))
 										<div class="w-full md:w-60 shrink-0">
 										<a href={`/project/${slug}`}class="mb-2 xl:mb-0 transition hover:scale-105 ">
 											<img
-												transition:name={`img-${slug}`}	
+												transition:name={`img-${slug}`}
 												class="h-72 w-auto object-cover rounded"
 												src={`/${img}`}
+												width={imgDims[img]?.[0]}
+												height={imgDims[img]?.[1]}
+												loading="lazy"
+												decoding="async"
 												alt ={title}/>
 										</a>
 										</div>
@@ -59,7 +107,7 @@ const projects = await(getCollection('projects'))
 												<a href={`/project/${slug}`}><h2 transition:name={`title-${slug}`} class="mb-2 text-3xl font-bold leading-tight text-white">{title}</h2></a>
 
 												<h3 class="mb-2 text-2xl leading-tight text-white">{author}</h3>
-												<h5 class="mb-4 text-l leading-tight text-white">{experience}</h5>
+												<p class="mb-4 text-l leading-tight text-white">{experience}</p>
 												<p class="mb-2 text-gray-300 max-w-sm">{description} <a href={`/project/${slug}`} class="text-blue-400 hover:underline">Read more →</a></p>
 											</div>
 											<div class="bottom-2 flex gap-4  justify-start">
@@ -82,13 +130,36 @@ const projects = await(getCollection('projects'))
 					</div>
 				</div>
 		</section>
-		<section id="studies" aria-label="Education" class="bg-[#0B1120] py-14 px-5 md:px-20">
-			<h2 class="text-center text-5xl font-extrabold mb-10 ">Studies 🎓</h2>
+		<section id="demos" aria-label="Pipeline and tool demos" class="bg-[#0B1120] py-14 px-5 md:px-20">
+			<h2 class="text-center text-5xl font-extrabold mb-16">In Action <span aria-hidden="true">🎬</span></h2>
+			<div class="space-y-16 max-w-5xl mx-auto">
+				{
+					demos.map((demo, index) => (
+						<div class={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 md:gap-12`}>
+							<div class="w-full md:w-1/2 flex justify-center relative">
+								<img src={demo.gif} alt={demo.alt} width="640" height="360" loading="lazy" class="rounded-xl shadow-lg w-full max-w-md md:max-w-full h-auto" />
+								<div class="absolute bottom-2 right-2 flex gap-1">
+									{demo.tools.map(tool => (
+										<img src={tool.logo} alt={`Made with ${tool.name}`} title={`Made with ${tool.name}`} width="96" height="96" loading="lazy" decoding="async" class="h-10 w-10 md:h-12 md:w-12 object-contain bg-[#0B1120]/80 rounded-md p-1 shadow-md" />
+									))}
+								</div>
+							</div>
+							<div class="w-full md:w-1/2 text-center md:text-left">
+								<h3 class="text-2xl font-bold text-white mb-3">{demo.title}</h3>
+								<p class="text-gray-300 leading-relaxed">{demo.description}</p>
+							</div>
+						</div>
+					))
+				}
+			</div>
+		</section>
+		<section id="studies" aria-label="Education" class="bg-[#1f2a41] py-14 px-5 md:px-20">
+			<h2 class="text-center text-5xl font-extrabold mb-10 ">Studies <span aria-hidden="true">🎓</span></h2>
 			<div class="space-y-12">
 				<!-- Lightbox Academy -->
 				<div class="bg-[#18202e] rounded-xl p-6 shadow-md"> 
 					<div class="flex flex-col md:flex-row gap-6 items-start">
-						<img src="/logo/lightbox_academy.jpg" alt="Lightbox Academy Logo" class="w-16 h-16 object-contain mt-1" />
+						<img src="/logo/lightbox_academy.jpg" alt="Lightbox Academy Logo" width="200" height="200" loading="lazy" decoding="async" class="w-16 h-16 object-contain mt-1" />
 						<div>
 						<h3 class="text-2xl font-bold text-white">Lightbox Academy</h3>
 						<p class="text-gray-300 mb-1">Professional Rigging Course · 2018 – 2019</p>
@@ -109,7 +180,7 @@ const projects = await(getCollection('projects'))
 				<!-- Universidad Rey Juan Carlos -->
 				<div class="bg-[#18202e] rounded-xl p-6 shadow-md"> 
 					<div class="flex flex-col md:flex-row gap-6 items-start">
-						<img src="/logo/URJC.jpg" alt="URJC Logo" class="w-16 h-16 object-contain mt-1" />
+						<img src="/logo/URJC.jpg" alt="URJC Logo" width="200" height="200" loading="lazy" decoding="async" class="w-16 h-16 object-contain mt-1" />
 						<div>
 						<h3 class="text-2xl font-bold text-white">Universidad Rey Juan Carlos</h3>
 						<p class="text-gray-300 mb-1">Video Games Design & Development Degree · 2015 – 2019</p>
@@ -122,7 +193,7 @@ const projects = await(getCollection('projects'))
 				<!-- Udemy Course 1 -->
 				<div class="bg-[#18202e] rounded-xl p-6 shadow-md"> 
 					<div class="flex flex-col md:flex-row gap-6 items-start">
-						<img src="/logo/Udemy.webp" alt="Udemy Control Rig Course" class="w-16 h-16 object-contain mt-1" />
+						<img src="/logo/Udemy.webp" alt="Udemy Control Rig Course" width="1476" height="1941" loading="lazy" decoding="async" class="w-16 h-16 object-contain mt-1" />
 						<div>
 							<h3 class="text-xl font-semibold text-white">Control Rig for Unreal Engine 5</h3>
 							<p class="text-gray-300">Instructor: Lincoln Margison</p>
@@ -132,7 +203,7 @@ const projects = await(getCollection('projects'))
 				<!-- Udemy Course 2 -->
 				<div class="bg-[#18202e] rounded-xl p-6 shadow-md"> 
 					<div class="flex flex-col md:flex-row gap-6 items-start">
-						<img src="/logo/Udemy.webp" alt="Udemy Procedural Animation Course" class="w-16 h-16 object-contain mt-1" />
+						<img src="/logo/Udemy.webp" alt="Udemy Procedural Animation Course" width="1476" height="1941" loading="lazy" decoding="async" class="w-16 h-16 object-contain mt-1" />
 						<div>
 							<h3 class="text-xl font-semibold text-white">Procedural Animation for Humans in Unreal Engine 5</h3>
 							<p class="text-gray-300">Instructor: Lincoln Margison</p>
@@ -140,32 +211,32 @@ const projects = await(getCollection('projects'))
 					</div>
 			</div>
 		</section>
-		<section id="skills" aria-label="Skills" class="bg-[#1f2a41] py-14">
+		<section id="skills" aria-label="Skills" class="bg-[#0B1120] py-14">
 			<div class="px-2 md:px-12 lg:px-20 mx-auto max-w-screen-xl">
-				<h2 class="text-center text-5xl font-extrabold mb-10">Skills 🧠</h2>
+				<h2 class="text-center text-5xl font-extrabold mb-10">Skills <span aria-hidden="true">🧠</span></h2>
 				<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
 				<div>
-					<img src="/logo/unreal.webp" alt="Unreal Engine" class="h-12 w-12 object-contain mx-auto mb-2"/>
+					<img src="/logo/unreal.webp" alt="Unreal Engine" width="118" height="118" loading="lazy" decoding="async" class="h-12 w-12 object-contain mx-auto mb-2"/>
 					<p class="text-white">Unreal Engine</p>
 				</div>
 				<div>
-					<img src="/logo/maya.webp" alt="Autodesk Maya" class="h-12 w-12 object-contain mx-auto mb-2" />
+					<img src="/logo/maya.webp" alt="Autodesk Maya" width="96" height="96" loading="lazy" decoding="async" class="h-12 w-12 object-contain mx-auto mb-2" />
 					<p class="text-white">Maya</p>
 				</div>
 				<div>
-					<img src="/logo/python_logo.webp" alt="Python" class="h-12 w-12 object-contain mx-auto mb-2" />
+					<img src="/logo/python_logo.webp" alt="Python" width="96" height="96" loading="lazy" decoding="async" class="h-12 w-12 object-contain mx-auto mb-2" />
 					<p class="text-white">Python</p>
 				</div>
 				<div>
-					<img src="/logo/mgear.png" alt="mGear" class="h-12 w-12 object-contain mx-auto mb-2"/>
+					<img src="/logo/mgear.png" alt="mGear" width="114" height="112" loading="lazy" decoding="async" class="h-12 w-12 object-contain mx-auto mb-2"/>
 					<p class="text-white">mGear</p>
 				</div>
 				<div>
-					<img src="/logo/mobu.webp" alt="MotionBuilder" class="h-12 w-12 object-contain mx-auto mb-2" />
+					<img src="/logo/mobu.webp" alt="MotionBuilder" width="96" height="96" loading="lazy" decoding="async" class="h-12 w-12 object-contain mx-auto mb-2" />
 					<p class="text-white">Motion Builder</p>
 				</div>
 				<div>
-					<img src="/logo/xSens.webp" alt="xSens" class="h-12 w-12 object-contain mx-auto mb-2" />
+					<img src="/logo/xSens.webp" alt="xSens" width="96" height="96" loading="lazy" decoding="async" class="h-12 w-12 object-contain mx-auto mb-2" />
 					<p class="text-white">xSens Mocap</p>
 				</div>
 				</div>
@@ -179,10 +250,10 @@ const projects = await(getCollection('projects'))
 				</p>
 				</div>
 		</section>
-		<section id="about" aria-label="About" class="bg-[#0B1120] py-14 pb-20">
+		<section id="about" aria-label="About" class="bg-[#1f2a41] py-14 pb-20">
 			<div class="px-4 md:px-12 lg:px-20 mx-auto max-w-screen-xl">
 				<h2 class="text-center text-5xl font-extrabold mb-10 flex items-center justify-center gap-4">
-					About Me <img src="/me.jpeg" alt="Photo of Andrés Felipe" class="w-28 h-28 rounded-full object-cover shadow" />
+					About Me <img src="/me.jpeg" alt="Photo of Andrés Felipe" width="200" height="200" loading="lazy" decoding="async" class="w-28 h-28 rounded-full object-cover shadow" />
 					
 				</h2>
 				<div class="max-w-3xl mx-auto text-center text-white">
@@ -196,13 +267,6 @@ const projects = await(getCollection('projects'))
 				</div>
 			</div>
 		</section>
-	</div>
-	
-	<main>
-		
 	</main>
-
-
-		 
 </Layout>
 

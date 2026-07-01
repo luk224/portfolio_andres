@@ -1,12 +1,2 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-body {
-    @apply grid place-content-center p-2;
-  }
-module.exports = {
-  theme: {
-    extend: {
-      scrollBehavior: ['responsive'],
-    }
-  }
-}

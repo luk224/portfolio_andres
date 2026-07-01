@@ -2,7 +2,7 @@
 title: Blades of Fire
 author: MercurySteam Entertainment
 description:  Enhanced rigging and pipeline workflows with custom Python tools and mGear components in Maya, supporting animation and mocap integration.
-img: blades_of_fire.jpg
+img: blades_of_fire.webp
 experience: 2020 - 2021
 extra:
  youtube: https://www.youtube.com/watch?v=HbHl2_M_cTQ

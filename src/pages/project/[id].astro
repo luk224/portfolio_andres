@@ -17,24 +17,38 @@ const { title, author, description, img, experience, extra } = data;
 const { youtube, website } = extra;
 
 const {Content} = await render(project)
+
+const imgDims: Record<string, [number, number]> = {
+    'edge_portada.webp': [1187, 1584],
+    'mindseye_1.webp': [1200, 1600],
+    'franceska-goya.webp': [611, 873],
+    'blades_of_fire.webp': [1200, 1600],
+};
+const logoDims: Record<string, [number, number]> = {
+    '/logo/maya.webp': [96, 96],
+    '/logo/mobu.webp': [96, 96],
+    '/logo/python_logo.webp': [96, 96],
+    '/logo/unreal.webp': [118, 118],
+    '/logo/mgear.png': [114, 112],
+    '/logo/xSens.webp': [96, 96],
+};
 ---
 
 
 
-<Layout title={title}>
-    <div class="flex flex-col md:flex-row gap-12">
-        <aside class="flex flex-col items-center gap-4">
-            <button onclick="history.back()" class="hover:underline opacity-70 text-xl"></button>
-            <!-- <a href="/" class="hover:underline opacity-70 text-xl"> ← Close</a> -->
-            <a href="#" onclick="history.back()">
-                <img transition:name={`img-${slug}`} src={`/${img}`} alt={title} class="rounded w-160 mb-6 transition hover:scale-102" />
+<Layout title={title} description={description} ogImage={`/${img}`}>
+    <div class="max-w-screen-xl mx-auto px-4 md:px-12 lg:px-20 py-10 md:py-16 flex flex-col md:flex-row gap-8 md:gap-12">
+        <aside class="flex flex-col items-center gap-4 md:w-80 lg:w-96 shrink-0">
+            <a href="/" class="self-start hover:underline opacity-70 text-xl">← Back</a>
+            <a href="/" class="w-full">
+                <img transition:name={`img-${slug}`} src={`/${img}`} alt={title} width={imgDims[img]?.[0]} height={imgDims[img]?.[1]} decoding="async" class="rounded w-full h-auto max-h-[70vh] object-cover shadow-lg transition hover:scale-102" />
             </a>
-                
+
         </aside>
-        <main class="px-4 py-10 max-w-3xl mx-auto">
+        <main class="max-w-2xl">
             <h1 transition:name={`title-${slug}`} class="text-4xl font-bold mb-4 text-white">{title}</h1>
-            <h3 class="mb-2 text-2xl leading-tight text-white">{author}</h3>
-            <h3 class="text-l text-white mb-4">{experience}</h3>
+            <h2 class="mb-2 text-2xl leading-tight text-white">{author}</h2>
+            <p class="text-l text-white mb-4">{experience}</p>
             <div class="prose prose-invert">
                 <Content />
             </div>
@@ -46,6 +60,10 @@ const {Content} = await render(project)
                                 <img
                                 src={technology.logo}
                                 alt={technology.name}
+                                width={logoDims[technology.logo]?.[0]}
+                                height={logoDims[technology.logo]?.[1]}
+                                loading="lazy"
+                                decoding="async"
                                 class="h-10 w-auto"
                                 />
                                 <span class="text-white text-sm whitespace-pre-line">{technology.name}</span>
@@ -66,6 +84,3 @@ const {Content} = await render(project)
     </div>
 
 </Layout>
-<script>
-    
-</script>
