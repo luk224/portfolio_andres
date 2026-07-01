@@ -46,10 +46,10 @@ const logoDims: Record<string, [number, number]> = {
 
         </aside>
         <main class="max-w-2xl">
-            <h1 transition:name={`title-${slug}`} class="text-4xl font-bold mb-4 text-white">{title}</h1>
-            <h2 class="mb-2 text-2xl leading-tight text-white">{author}</h2>
-            <p class="text-l text-white mb-4">{experience}</p>
-            <div class="prose prose-invert">
+            <h1 transition:name={`title-${slug}`} class="text-4xl font-bold mb-4 text-[#211B12]">{title}</h1>
+            <h2 class="mb-2 text-2xl leading-tight text-[#211B12]">{author}</h2>
+            <p class="text-l text-[#211B12] mb-4">{experience}</p>
+            <div class="prose prose-headings:text-[#211B12] prose-strong:text-[#211B12] prose-a:text-[#C43D12]">
                 <Content />
             </div>
             <div class="">
@@ -66,18 +66,28 @@ const logoDims: Record<string, [number, number]> = {
                                 decoding="async"
                                 class="h-10 w-auto"
                                 />
-                                <span class="text-white text-sm whitespace-pre-line">{technology.name}</span>
+                                <span class="text-[#211B12] text-sm whitespace-pre-line">{technology.name}</span>
                         </div>
                         ))}
                     </div>
                 )}
             </div>
-            <div class="mt-10 flex gap-4">
+            <div class="mt-10 flex flex-wrap gap-4">
               {youtube && (
-                <a href={youtube} target="_blank" rel="noopener noreferrer">Trailer</a>
+                <a href={youtube} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-[#FFFFFF] hover:bg-[#FFF3E0] transition rounded-full px-5 py-2.5 shadow-sm text-[#211B12] text-sm font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M19.615 3.184C21.116 3.464 22.245 4.716 22.5 6.253c.291 1.71.291 5.277.291 5.277s0 3.566-.291 5.277c-.255 1.537-1.384 2.789-2.885 3.069C17.578 20.5 12 20.5 12 20.5s-5.578 0-7.615-.624C2.884 19.596 1.755 18.344 1.5 16.807.961 14.697.961 11.53.961 11.53s0-3.566.291-5.277c.255-1.537 1.384-2.789 2.885-3.069C6.422 1.5 12 1.5 12 1.5s5.578 0 7.615.624zM9.75 15.27l6.25-3.77-6.25-3.77v7.54z"/>
+                  </svg>
+                  Trailer
+                </a>
               )}
               {website && (
-                <a href={website} target="_blank" rel="noopener noreferrer">Official Website</a>
+                <a href={website} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 bg-[#FFFFFF] hover:bg-[#FFF3E0] transition rounded-full px-5 py-2.5 shadow-sm text-[#211B12] text-sm font-medium">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 0c2.5 0 4.5 4.5 4.5 10S14.5 22 12 22s-4.5-4.5-4.5-10S9.5 2 12 2z" />
+                  </svg>
+                  Official Website
+                </a>
               )}
             </div>
         </main>

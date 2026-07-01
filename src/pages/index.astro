@@ -7,7 +7,7 @@ const projects = (await getCollection('projects')).sort((a, b) => a.slug.localeC
 const demos = [
 	{
 		title: 'Vehicle Rigging',
-		gif: '/Vehicles_Rigging.gif',
+		video: '/Vehicles_Rigging.mp4',
 		alt: 'Gameplay and cinematic footage of rigged vehicles running in Unreal Engine',
 		description: 'Gameplay and cinematic footage of vehicles I rigged, combining Maya and MotionBuilder for the rig work with implementation in Unreal Engine. Built custom tools for steering, wheel rotation, and suspension physics.',
 		tools: [
@@ -18,21 +18,21 @@ const demos = [
 	},
 	{
 		title: 'Hair Simulation',
-		gif: '/Hair_simulation_Seb.gif',
+		video: '/Hair_simulation_Seb.mp4',
 		alt: 'Gameplay results of a hair simulation system made in Maya and exported to joints',
 		description: 'Gameplay results of a hair simulation system made in Maya and exported to joints. Controlling simulation settings and baking it helped the cinematic team achieve the wanted animation and prevent unexpected simulation results in the final product.',
 		tools: [{ name: 'Maya', logo: '/logo/maya.webp' }],
 	},
 	{
 		title: 'IK Walk Cycle',
-		gif: '/walk_anim.gif',
+		video: '/walk_anim.mp4',
 		alt: 'Three-legged robot walking along a path using animated IK legs',
 		description: 'A three-legged robot walking along a path, fully driven by IK (Inverse Kinematics) leg animation.',
 		tools: [{ name: 'Maya', logo: '/logo/maya.webp' }],
 	},
 	{
 		title: 'IK Ground Collision',
-		gif: '/IK_Collision.gif',
+		video: '/IK_Collision.mp4',
 		alt: 'IK collision system keeping robot legs from clipping through uneven ground',
 		description: "A custom IK collision system that keeps the robot's legs from clipping through the ground as the terrain changes.",
 		tools: [{ name: 'Maya', logo: '/logo/maya.webp' }],
@@ -50,18 +50,18 @@ const imgDims: Record<string, [number, number]> = {
 
 <Layout title="Andres Felipe Portfolio">
 	<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
-	<nav class="fixed top-0 left-0 w-full bg-gradient-to-b from-[#0B1120]/100 to-[#0B1120]/50 shadow-md z-50">
-		  <div class="max-w-screen-xl mx-auto px-6 py-4 flex justify-center gap-4 text-white text-base md:text-xl lg:text-2xl font-medium">
-			<a href="#reel" class="hover:text-blue-400 hover:underline transition nav-link">Reel</a>
-			<a href="#projects" class="hover:text-blue-400 hover:underline transition nav-link">Projects</a>
-			<a href="#demos" class="hover:text-blue-400 hover:underline transition nav-link">Demos</a>
-			<a href="#studies" class="hover:text-blue-400 hover:underline transition nav-link">Studies</a>
-			<a href="#skills" class="hover:text-blue-400 hover:underline transition nav-link">Skills</a>
-			<a href="#about" class="hover:text-blue-400 hover:underline transition nav-link">About</a>
+	<nav class="fixed top-0 left-0 w-full bg-gradient-to-b from-[#F8F2E7]/100 to-[#F8F2E7]/50 shadow-md z-50">
+		  <div class="max-w-screen-xl mx-auto px-6 py-4 flex justify-center gap-4 text-[#211B12] text-base md:text-xl lg:text-2xl font-medium">
+			<a href="#reel" class="hover:text-[#E85D2C] hover:underline transition nav-link">Reel</a>
+			<a href="#projects" class="hover:text-[#E85D2C] hover:underline transition nav-link">Projects</a>
+			<a href="#demos" class="hover:text-[#E85D2C] hover:underline transition nav-link">Demos</a>
+			<a href="#studies" class="hover:text-[#E85D2C] hover:underline transition nav-link">Studies</a>
+			<a href="#skills" class="hover:text-[#E85D2C] hover:underline transition nav-link">Skills</a>
+			<a href="#about" class="hover:text-[#E85D2C] hover:underline transition nav-link">About</a>
 		</div>
 	</nav>
 	<main id="main-content" class="px-2 md:px-4 lg:px-20 mx-auto max-w-screen-xl">
-		<section id="reel" class="text-center bg-[#0B1120] py-24">
+		<section id="reel" class="text-center bg-[#F8F2E7] py-24">
 			<h1 class="text-center text-5xl font-extrabold ">Andrés Felipe</h1>
 			<p class="text-center text-2xl mb-14">Technical Animator / Rigger</p>
 
@@ -70,7 +70,7 @@ const imgDims: Record<string, [number, number]> = {
 				<iframe 
 				class="w-full h-full rounded-xl shadow-lg"
 				
-				src="https://www.youtube.com/embed/eMfcm_q7V80?si=KbWdc0T--wQVgEh5" 
+				src="https://www.youtube.com/embed/eMfcm_q7V80?si=KbWdc0T--wQVgEh5&hl=en"
 				title="Demo Reel"
 				
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -78,7 +78,7 @@ const imgDims: Record<string, [number, number]> = {
 				</iframe>
 			</div>
 		</section>
-		<section id="projects" aria-label="Participated in projects" class="bg-[#1f2a41] py-14">
+		<section id="projects" aria-label="Participated in projects" class="bg-[#EEE3CE] py-14">
 			<h2 class="text-center text-5xl font-extrabold mb-20">Experience <span aria-hidden="true">🦴</span></h2>
 				<div class="px-8 md:px-4">
 					<div class="grid gap-6 md:grid-cols-2 auto-rows-auto">
@@ -104,11 +104,11 @@ const imgDims: Record<string, [number, number]> = {
 										</div>
 										<div class="relative flex flex-col justify-start flex-1">
 											<div>
-												<a href={`/project/${slug}`}><h2 transition:name={`title-${slug}`} class="mb-2 text-3xl font-bold leading-tight text-white">{title}</h2></a>
+												<a href={`/project/${slug}`}><h2 transition:name={`title-${slug}`} class="mb-2 text-3xl font-bold leading-tight text-[#211B12]">{title}</h2></a>
 
-												<h3 class="mb-2 text-2xl leading-tight text-white">{author}</h3>
-												<p class="mb-4 text-l leading-tight text-white">{experience}</p>
-												<p class="mb-2 text-gray-300 max-w-sm">{description} <a href={`/project/${slug}`} class="text-blue-400 hover:underline">Read more →</a></p>
+												<h3 class="mb-2 text-2xl leading-tight text-[#211B12]">{author}</h3>
+												<p class="mb-4 text-l leading-tight text-[#211B12]">{experience}</p>
+												<p class="mb-2 text-[#5B5140] max-w-sm">{description} <a href={`/project/${slug}`} class="text-[#C43D12] hover:underline">Read more →</a></p>
 											</div>
 											<div class="bottom-2 flex gap-4  justify-start">
 												<a href={youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
@@ -130,138 +130,141 @@ const imgDims: Record<string, [number, number]> = {
 					</div>
 				</div>
 		</section>
-		<section id="demos" aria-label="Pipeline and tool demos" class="bg-[#0B1120] py-14 px-5 md:px-20">
+		<section id="demos" aria-label="Pipeline and tool demos" class="bg-[#F8F2E7] py-14 px-5 md:px-20">
 			<h2 class="text-center text-5xl font-extrabold mb-16">In Action <span aria-hidden="true">🎬</span></h2>
 			<div class="space-y-16 max-w-5xl mx-auto">
 				{
 					demos.map((demo, index) => (
 						<div class={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 md:gap-12`}>
 							<div class="w-full md:w-1/2 flex justify-center relative">
-								<img src={demo.gif} alt={demo.alt} width="640" height="360" loading="lazy" class="rounded-xl shadow-lg w-full max-w-md md:max-w-full h-auto" />
+								<video src={demo.video} aria-label={demo.alt} autoplay muted loop playsinline preload="metadata" width="640" height="360" class="rounded-xl shadow-lg w-full max-w-md md:max-w-full aspect-video object-cover"></video>
 								<div class="absolute bottom-2 right-2 flex gap-1">
 									{demo.tools.map(tool => (
-										<img src={tool.logo} alt={`Made with ${tool.name}`} title={`Made with ${tool.name}`} width="96" height="96" loading="lazy" decoding="async" class="h-10 w-10 md:h-12 md:w-12 object-contain bg-[#0B1120]/80 rounded-md p-1 shadow-md" />
+										<img src={tool.logo} alt={`Made with ${tool.name}`} title={`Made with ${tool.name}`} width="96" height="96" loading="lazy" decoding="async" class="h-10 w-10 md:h-12 md:w-12 object-contain bg-[#211B12]/80 rounded-md p-1 shadow-md" />
 									))}
 								</div>
 							</div>
 							<div class="w-full md:w-1/2 text-center md:text-left">
-								<h3 class="text-2xl font-bold text-white mb-3">{demo.title}</h3>
-								<p class="text-gray-300 leading-relaxed">{demo.description}</p>
+								<h3 class="text-2xl font-bold text-[#211B12] mb-3">{demo.title}</h3>
+								<p class="text-[#5B5140] leading-relaxed">{demo.description}</p>
 							</div>
 						</div>
 					))
 				}
 			</div>
 		</section>
-		<section id="studies" aria-label="Education" class="bg-[#1f2a41] py-14 px-5 md:px-20">
+		<section id="studies" aria-label="Education" class="bg-[#EEE3CE] py-14 px-5 md:px-20">
 			<h2 class="text-center text-5xl font-extrabold mb-10 ">Studies <span aria-hidden="true">🎓</span></h2>
 			<div class="space-y-12">
 				<!-- Lightbox Academy -->
-				<div class="bg-[#18202e] rounded-xl p-6 shadow-md"> 
+				<div class="bg-[#FFFFFF] rounded-xl p-6 shadow-md"> 
 					<div class="flex flex-col md:flex-row gap-6 items-start">
 						<img src="/logo/lightbox_academy.jpg" alt="Lightbox Academy Logo" width="200" height="200" loading="lazy" decoding="async" class="w-16 h-16 object-contain mt-1" />
 						<div>
-						<h3 class="text-2xl font-bold text-white">Lightbox Academy</h3>
-						<p class="text-gray-300 mb-1">Professional Rigging Course · 2018 – 2019</p>
-						<ul class="list-disc list-inside text-gray-400 text-sm mb-2">
+						<h3 class="text-2xl font-bold text-[#211B12]">Lightbox Academy</h3>
+						<p class="text-[#5B5140] mb-1">Professional Rigging Course · 2018 – 2019</p>
+						<ul class="list-disc list-inside text-[#8A7F6A] text-sm mb-2">
 							<li>Rigs for inorganic and organic characters</li>
 							<li>Biped & quadruped rigging</li>
 							<li>Topology verification, skinning, facial rig</li>
 							<li>Modifiers, MEL & Python scripting</li>
 							<li>Procedural Rigging in Maya</li>
 						</ul>
-						<p class="text-sm text-blue-400">
+						<p class="text-sm text-[#C43D12]">
 							<a href="https://lboxacademy.es/animacion/curso-profesional-de-rigging/" target="_blank" rel="noopener">Course Website</a>
 						</p>
-						<p class="text-sm text-gray-400 mt-2">Skills: Control Systems, ZBrush, Autodesk Maya, Character Rigging</p>
+						<p class="text-sm text-[#8A7F6A] mt-2">Skills: Control Systems, ZBrush, Autodesk Maya, Character Rigging</p>
 						</div>
 					</div>	
 				</div>
 				<!-- Universidad Rey Juan Carlos -->
-				<div class="bg-[#18202e] rounded-xl p-6 shadow-md"> 
+				<div class="bg-[#FFFFFF] rounded-xl p-6 shadow-md"> 
 					<div class="flex flex-col md:flex-row gap-6 items-start">
 						<img src="/logo/URJC.jpg" alt="URJC Logo" width="200" height="200" loading="lazy" decoding="async" class="w-16 h-16 object-contain mt-1" />
 						<div>
-						<h3 class="text-2xl font-bold text-white">Universidad Rey Juan Carlos</h3>
-						<p class="text-gray-300 mb-1">Video Games Design & Development Degree · 2015 – 2019</p>
-						<p class="text-sm text-gray-400">
+						<h3 class="text-2xl font-bold text-[#211B12]">Universidad Rey Juan Carlos</h3>
+						<p class="text-[#5B5140] mb-1">Video Games Design & Development Degree · 2015 – 2019</p>
+						<p class="text-sm text-[#8A7F6A]">
 							Skills: C#, ZBrush, Substance Painter, Adobe Suite, Unity, Unreal Engine, Autodesk Maya, Character Rigging, JavaScript, C++, HTML
 						</p>
 						</div>
 					</div>
 				</div>
 				<!-- Udemy Course 1 -->
-				<div class="bg-[#18202e] rounded-xl p-6 shadow-md"> 
+				<div class="bg-[#FFFFFF] rounded-xl p-6 shadow-md">
 					<div class="flex flex-col md:flex-row gap-6 items-start">
 						<img src="/logo/Udemy.webp" alt="Udemy Control Rig Course" width="1476" height="1941" loading="lazy" decoding="async" class="w-16 h-16 object-contain mt-1" />
 						<div>
-							<h3 class="text-xl font-semibold text-white">Control Rig for Unreal Engine 5</h3>
-							<p class="text-gray-300">Instructor: Lincoln Margison</p>
+							<h3 class="text-xl font-semibold text-[#211B12]">Control Rig for Unreal Engine 5</h3>
+							<p class="text-[#5B5140] mb-1">Instructor: Lincoln Margison</p>
+							<p class="text-sm text-[#8A7F6A]">Skills: Control Rig, Unreal Engine, Character Rigging</p>
 						</div>
 					</div>
 				</div>
 				<!-- Udemy Course 2 -->
-				<div class="bg-[#18202e] rounded-xl p-6 shadow-md"> 
+				<div class="bg-[#FFFFFF] rounded-xl p-6 shadow-md">
 					<div class="flex flex-col md:flex-row gap-6 items-start">
 						<img src="/logo/Udemy.webp" alt="Udemy Procedural Animation Course" width="1476" height="1941" loading="lazy" decoding="async" class="w-16 h-16 object-contain mt-1" />
 						<div>
-							<h3 class="text-xl font-semibold text-white">Procedural Animation for Humans in Unreal Engine 5</h3>
-							<p class="text-gray-300">Instructor: Lincoln Margison</p>
+							<h3 class="text-xl font-semibold text-[#211B12]">Procedural Animation for Humans in Unreal Engine 5</h3>
+							<p class="text-[#5B5140] mb-1">Instructor: Lincoln Margison</p>
+							<p class="text-sm text-[#8A7F6A]">Skills: Procedural Animation, Unreal Engine, Control Rig</p>
 						</div>
 					</div>
+				</div>
 			</div>
 		</section>
-		<section id="skills" aria-label="Skills" class="bg-[#0B1120] py-14">
+		<section id="skills" aria-label="Skills" class="bg-[#F8F2E7] py-14">
 			<div class="px-2 md:px-12 lg:px-20 mx-auto max-w-screen-xl">
 				<h2 class="text-center text-5xl font-extrabold mb-10">Skills <span aria-hidden="true">🧠</span></h2>
 				<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
 				<div>
 					<img src="/logo/unreal.webp" alt="Unreal Engine" width="118" height="118" loading="lazy" decoding="async" class="h-12 w-12 object-contain mx-auto mb-2"/>
-					<p class="text-white">Unreal Engine</p>
+					<p class="text-[#211B12]">Unreal Engine</p>
 				</div>
 				<div>
 					<img src="/logo/maya.webp" alt="Autodesk Maya" width="96" height="96" loading="lazy" decoding="async" class="h-12 w-12 object-contain mx-auto mb-2" />
-					<p class="text-white">Maya</p>
+					<p class="text-[#211B12]">Maya</p>
 				</div>
 				<div>
 					<img src="/logo/python_logo.webp" alt="Python" width="96" height="96" loading="lazy" decoding="async" class="h-12 w-12 object-contain mx-auto mb-2" />
-					<p class="text-white">Python</p>
+					<p class="text-[#211B12]">Python</p>
 				</div>
 				<div>
 					<img src="/logo/mgear.png" alt="mGear" width="114" height="112" loading="lazy" decoding="async" class="h-12 w-12 object-contain mx-auto mb-2"/>
-					<p class="text-white">mGear</p>
+					<p class="text-[#211B12]">mGear</p>
 				</div>
 				<div>
 					<img src="/logo/mobu.webp" alt="MotionBuilder" width="96" height="96" loading="lazy" decoding="async" class="h-12 w-12 object-contain mx-auto mb-2" />
-					<p class="text-white">Motion Builder</p>
+					<p class="text-[#211B12]">Motion Builder</p>
 				</div>
 				<div>
 					<img src="/logo/xSens.webp" alt="xSens" width="96" height="96" loading="lazy" decoding="async" class="h-12 w-12 object-contain mx-auto mb-2" />
-					<p class="text-white">xSens Mocap</p>
+					<p class="text-[#211B12]">xSens Mocap</p>
 				</div>
 				</div>
 			</div>
-			<div class="text-gray-300 text-center max-w-6xl mx-auto px-4 pt-10 leading-relaxed grid md:grid-cols-2 gap-8">
+			<div class="text-[#5B5140] text-center max-w-6xl mx-auto px-4 pt-10 leading-relaxed grid md:grid-cols-2 gap-8">
 				<p class="mb-4 text-justify">
-					<strong>Technical Artist</strong> with solid experience in <span class="text-blue-300 font-semibold">rigging</span>, <span class="text-blue-300 font-semibold">pipeline development</span>, and <span class="text-blue-300 font-semibold">tool creation</span> for animation and real-time production. Proficient in <span class="text-blue-300 font-semibold">Autodesk Maya</span>, with strong skills in <span class="text-blue-300 font-semibold">Python scripting</span>, <span class="text-blue-300 font-semibold">PySide</span> (Qt for UI development), and <span class="text-blue-300 font-semibold">mGear</span> for building modular and animator-friendly rigs. Deep understanding of <span class="text-blue-300 font-semibold">3D mathematics</span> including transforms, matrices, and vector math applied to rigging and animation systems.
+					<strong>Technical Artist</strong> with solid experience in <span class="text-[#C43D12] font-semibold">rigging</span>, <span class="text-[#C43D12] font-semibold">pipeline development</span>, and <span class="text-[#C43D12] font-semibold">tool creation</span> for animation and real-time production. Proficient in <span class="text-[#C43D12] font-semibold">Autodesk Maya</span>, with strong skills in <span class="text-[#C43D12] font-semibold">Python scripting</span>, <span class="text-[#C43D12] font-semibold">PySide</span> (Qt for UI development), and <span class="text-[#C43D12] font-semibold">mGear</span> for building modular and animator-friendly rigs. Deep understanding of <span class="text-[#C43D12] font-semibold">3D mathematics</span> including transforms, matrices, and vector math applied to rigging and animation systems.
 				</p>
 				<p class="mb-4 text-justify">
-					Skilled in creating <span class="text-blue-300 font-semibold">full body and facial rigs</span>, and <span class="text-blue-300 font-semibold">skin weighting</span> for characters, props, and vehicles. Experienced in integrating assets into <span class="text-blue-300 font-semibold">Unreal Engine</span> with support for <span class="text-blue-300 font-semibold">Control Rig</span>, Live Link, and <span class="text-blue-300 font-semibold">motion capture</span> workflows. Experience at developing custom tools to optimize artist workflows across <span class="text-blue-300 font-semibold">rigging</span>, <span class="text-blue-300 font-semibold">animation</span>, and <span class="text-blue-300 font-semibold">cinematics</span> teams. Familiar with production pipelines, <span class="text-blue-300 font-semibold">version control system</span> (Perforce), and collaborative, cross-disciplinary environments.
+					Skilled in creating <span class="text-[#C43D12] font-semibold">full body and facial rigs</span>, and <span class="text-[#C43D12] font-semibold">skin weighting</span> for characters, props, and vehicles. Experienced in integrating assets into <span class="text-[#C43D12] font-semibold">Unreal Engine</span> with support for <span class="text-[#C43D12] font-semibold">Control Rig</span>, Live Link, and <span class="text-[#C43D12] font-semibold">motion capture</span> workflows. Experience at developing custom tools to optimize artist workflows across <span class="text-[#C43D12] font-semibold">rigging</span>, <span class="text-[#C43D12] font-semibold">animation</span>, and <span class="text-[#C43D12] font-semibold">cinematics</span> teams. Familiar with production pipelines, <span class="text-[#C43D12] font-semibold">version control system</span> (Perforce), and collaborative, cross-disciplinary environments.
 				</p>
 				</div>
 		</section>
-		<section id="about" aria-label="About" class="bg-[#1f2a41] py-14 pb-20">
+		<section id="about" aria-label="About" class="bg-[#EEE3CE] py-14 pb-20">
 			<div class="px-4 md:px-12 lg:px-20 mx-auto max-w-screen-xl">
 				<h2 class="text-center text-5xl font-extrabold mb-10 flex items-center justify-center gap-4">
 					About Me <img src="/me.jpeg" alt="Photo of Andrés Felipe" width="200" height="200" loading="lazy" decoding="async" class="w-28 h-28 rounded-full object-cover shadow" />
 					
 				</h2>
-				<div class="max-w-3xl mx-auto text-center text-white">
-				<p class="text-lg text-gray-300 mb-6">
+				<div class="max-w-3xl mx-auto text-center text-[#211B12]">
+				<p class="text-lg text-[#5B5140] mb-6">
 					I'm a character rigger and technical artist with professional experience working in Madrid, Spain and Edinburgh, Scotland. I enjoy solving complex problems and developing custom rigs and tools to streamline workflows and support efficient production.
 				</p>
 					<p>Connect with me on 
-						<a href="https://www.linkedin.com/in/andrewsupertramp/" target="_blank" rel="noopener noreferrer" class="inline-block text-blue-400 hover:text-blue-300 transition text-lg rounded font-medium">
+						<a href="https://www.linkedin.com/in/andrewsupertramp/" target="_blank" rel="noopener noreferrer" class="inline-block text-[#C43D12] hover:text-[#E85D2C] transition text-lg rounded font-medium">
 						LinkedIn</a>
 					</p>
 				</div>

@@ -3,7 +3,7 @@ title: NDA
 author: Larian Studios
 description: Building full-body and facial rigs for characters and creatures in Maya, integrated with Larian Studios' proprietary pipeline and tools to support animation in game production.
 img: Larian_Studios_Logo_2012.webp
-experience: "2026 - Present"
+experience: "2026"
 extra:
  youtube: https://www.youtube.com/@LarianStudios
  website: https://larian.com/

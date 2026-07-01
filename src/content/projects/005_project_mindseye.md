@@ -3,7 +3,7 @@ title: Mindseye
 author: Build a Rocket Boy
 description: Supported rigging and tool development for Maya and Unreal Engine 5, enhancing workflows for characters, props, and cinematics.
 img: mindseye_1.webp
-experience: 2021 - Present
+experience: 2021 - 2025
 extra:
  youtube: https://www.youtube.com/watch?v=kMfNQobF_bY
  website: https://www.mindseye.game/

@@ -3,7 +3,7 @@ title: Everywhere
 author: Build a Rocket Boy
 description: Improved rigging workflows and built custom Python tools for Maya, supporting animation and cinematics teams.
 img: edge_portada.webp
-experience: 2021 - Present
+experience: 2021 - 2025
 extra:
  youtube: https://www.youtube.com/watch?v=90FNVadJP6s
  website: https://everywhere.game/
