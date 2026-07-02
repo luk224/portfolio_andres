@@ -37,6 +37,36 @@ const demos = [
 		description: "A custom IK collision system that keeps the robot's legs from clipping through the ground as the terrain changes.",
 		tools: [{ name: 'Maya', logo: '/logo/maya.webp' }],
 	},
+	{
+		title: 'Character Creator',
+		video: '/Maya_Character_Creator.mp4',
+		alt: 'Character Creator tool browsing and filtering Perforce assets to build a character in Maya',
+		description: "A Maya tool that browses and filters every asset live from Perforce, letting riggers and animators assemble and export characters in seconds instead of hunting through depot folders. Built-in skinning utilities speed up weight testing and iteration, keeping artists in a fast, uninterrupted workflow.",
+		tools: [
+			{ name: 'Maya', logo: '/logo/maya.webp' },
+			{ name: 'Python', logo: '/logo/python_logo.webp' },
+		],
+	},
+	{
+		title: 'Skinning Picker',
+		video: '/Skinning_picker.mp4',
+		alt: 'Skinning Picker tool letting a rigger select the matching ROM animation for the body part being skinned',
+		description: "A standalone PySide tool that lets riggers jump straight to the Range of Motion (ROM) clip for whichever body part they're currently weighting, instead of scrubbing through unrelated animation. Picking a region isolates its ROM immediately, keeping skinning checks fast and focused.",
+		tools: [
+			{ name: 'Maya', logo: '/logo/maya.webp' },	
+			{ name: 'Python', logo: '/logo/python_logo.webp' },
+		],
+	},
+	{
+		title: 'Cinematic Editor',
+		video: '/Cinematic_Editor.mp4',
+		alt: 'Cinematic Editor tool for manipulating cameras, timeline, and characters inside Maya like Unreal Sequencer',
+		description: "A Sequencer-style cinematic tool built entirely on OpenMaya and PySide with custom Maya nodes, letting animators and cinematic artists manipulate cameras, timelines, and characters inside Maya the same way they would in Unreal Sequencer. Built-in Perforce integration keeps scenes tracked and synced live with the Game Editor.",
+		tools: [
+			{ name: 'Maya', logo: '/logo/maya.webp' },
+			{ name: 'Python', logo: '/logo/python_logo.webp' },
+		],
+	},
 ]
 
 const imgDims: Record<string, [number, number]> = {
@@ -137,7 +167,7 @@ const imgDims: Record<string, [number, number]> = {
 					demos.map((demo, index) => (
 						<div class={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-8 md:gap-12`}>
 							<div class="w-full md:w-1/2 flex justify-center relative">
-								<video src={demo.video} aria-label={demo.alt} autoplay muted loop playsinline preload="metadata" width="640" height="360" class="rounded-xl shadow-lg w-full max-w-md md:max-w-full aspect-video object-cover"></video>
+								<video src={demo.video} aria-label={demo.alt} autoplay muted loop playsinline preload="metadata" width="640" height="360" class="demo-video cursor-zoom-in rounded-xl shadow-lg w-full max-w-md md:max-w-full aspect-video object-cover transition-transform duration-300 hover:scale-[1.02]"></video>
 								<div class="absolute bottom-2 right-2 flex gap-1">
 									{demo.tools.map(tool => (
 										<img src={tool.logo} alt={`Made with ${tool.name}`} title={`Made with ${tool.name}`} width="96" height="96" loading="lazy" decoding="async" class="h-10 w-10 md:h-12 md:w-12 object-contain bg-[#211B12]/80 rounded-md p-1 shadow-md" />
@@ -271,5 +301,55 @@ const imgDims: Record<string, [number, number]> = {
 			</div>
 		</section>
 	</main>
+	<div id="video-overlay" class="fixed inset-0 z-40 hidden bg-black/80"></div>
 </Layout>
+
+<script>
+	function setupVideoExpand() {
+		const overlay = document.getElementById('video-overlay');
+		if (!overlay) return;
+
+		let expandedVideo: HTMLVideoElement | null = null;
+
+		function collapse() {
+			if (!expandedVideo) return;
+			expandedVideo.style.cssText = '';
+			overlay!.classList.add('hidden');
+			expandedVideo = null;
+		}
+
+		function expand(video: HTMLVideoElement) {
+			if (expandedVideo) collapse();
+			video.style.cssText = `
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: auto;
+				height: auto;
+				max-width: 92vw;
+				max-height: 92vh;
+				object-fit: contain;
+				z-index: 50;
+			`;
+			overlay!.classList.remove('hidden');
+			expandedVideo = video;
+		}
+
+		document.querySelectorAll<HTMLVideoElement>('.demo-video').forEach((video) => {
+			video.addEventListener('click', () => {
+				if (expandedVideo === video) {
+					collapse();
+				} else {
+					expand(video);
+				}
+			});
+		});
+
+		overlay.addEventListener('click', collapse);
+	}
+
+	setupVideoExpand();
+	document.addEventListener('astro:page-load', setupVideoExpand);
+</script>
 
