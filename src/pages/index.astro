@@ -81,27 +81,42 @@ const imgDims: Record<string, [number, number]> = {
 <Layout title="Andres Felipe Portfolio">
 	<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
 	<nav class="fixed top-0 left-0 w-full bg-gradient-to-b from-[#F8F2E7]/100 to-[#F8F2E7]/50 shadow-md z-50">
-		  <div class="max-w-screen-xl mx-auto px-6 py-4 flex justify-center gap-4 text-[#211B12] text-base md:text-xl lg:text-2xl font-medium">
-			<a href="#reel" class="hover:text-[#E85D2C] hover:underline transition nav-link">Reel</a>
-			<a href="#projects" class="hover:text-[#E85D2C] hover:underline transition nav-link">Projects</a>
-			<a href="#demos" class="hover:text-[#E85D2C] hover:underline transition nav-link">Demos</a>
-			<a href="#studies" class="hover:text-[#E85D2C] hover:underline transition nav-link">Studies</a>
-			<a href="#skills" class="hover:text-[#E85D2C] hover:underline transition nav-link">Skills</a>
-			<a href="#about" class="hover:text-[#E85D2C] hover:underline transition nav-link">About</a>
+		  <div class="max-w-screen-xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4 text-[#211B12] text-base md:text-xl lg:text-2xl font-medium">
+			<a href="#reel" class="font-extrabold shrink-0 hover:text-[#E85D2C] transition">AF</a>
+			<div class="flex flex-wrap justify-end gap-4">
+				<a href="#reel" class="hover:text-[#E85D2C] hover:underline transition nav-link">Reel</a>
+				<a href="#projects" class="hover:text-[#E85D2C] hover:underline transition nav-link">Projects</a>
+				<a href="#demos" class="hover:text-[#E85D2C] hover:underline transition nav-link">Demos</a>
+				<a href="#studies" class="hover:text-[#E85D2C] hover:underline transition nav-link">Studies</a>
+				<a href="#skills" class="hover:text-[#E85D2C] hover:underline transition nav-link">Skills</a>
+				<a href="#about" class="hover:text-[#E85D2C] hover:underline transition nav-link">About</a>
+				<a href="https://www.linkedin.com/in/andrewsupertramp/" target="_blank" rel="noopener noreferrer" class="text-base lg:text-lg bg-[#C43D12] text-white hover:bg-[#E85D2C] font-medium px-4 py-2 rounded-lg transition whitespace-nowrap">Hire me</a>
+			</div>
 		</div>
 	</nav>
 	<main id="main-content" class="px-2 md:px-4 lg:px-20 mx-auto max-w-screen-xl">
 		<section id="reel" class="text-center bg-[#F8F2E7] py-24">
-			<h1 class="text-center text-5xl font-extrabold ">Andrés Felipe</h1>
-			<p class="text-center text-2xl mb-4">Technical Animator / Rigger</p>
-			<p class="text-center text-lg text-[#5B5140] max-w-2xl mx-auto mb-6">
-				6+ years in the game industry, with professional experience in <span class="text-[#C43D12] font-semibold">Spain</span> and the <span class="text-[#C43D12] font-semibold">UK</span>. Currently open to new opportunities.
-			</p>
-			<div class="flex justify-center gap-4 mb-14">
-				<a href="https://www.linkedin.com/in/andrewsupertramp/" target="_blank" rel="noopener noreferrer" class="inline-block border border-[#C43D12] text-[#C43D12] hover:bg-[#C43D12] hover:text-white text-lg font-medium px-6 py-3 rounded-lg transition">LinkedIn</a>
+			<div class="max-w-2xl mx-auto text-left mb-14">
+				<h1 class="text-5xl font-extrabold">Andrés Felipe</h1>
+				<p class="text-2xl mb-4">Technical Animator / Rigger</p>
+				<p class="text-lg text-[#5B5140] mb-6">
+					6+ years in the game industry, with professional experience in <span class="font-semibold">Spain</span> and the <span class="font-semibold">UK</span>. Currently open to new opportunities.
+				</p>
+				<div class="flex flex-wrap items-center gap-4">
+					<a href="https://www.linkedin.com/in/andrewsupertramp/" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#C43D12] text-white hover:bg-[#E85D2C] text-lg font-medium px-6 py-3 rounded-lg transition">LinkedIn</a>
+					<span class="flex items-center gap-2 text-lg text-[#211B12] select-all">
+						fg.andres23@gmail.com
+						<a href="mailto:fg.andres23@gmail.com" aria-label="Send email to fg.andres23@gmail.com" title="Send email" class="inline-flex items-center justify-center w-9 h-9 shrink-0 rounded-lg border-2 border-[#C43D12] text-[#C43D12] hover:bg-[#C43D12] hover:text-white transition">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<rect x="2" y="4" width="20" height="16" rx="2"/>
+								<path d="m22 6-10 7L2 6"/>
+							</svg>
+						</a>
+					</span>
+				</div>
 			</div>
 
-			<h2 class="text-center text-5xl font-extrabold mb-10">Demo Reel</h2>
+			<h2 class="text-center text-3xl md:text-4xl font-bold mb-10">Demo Reel</h2>
 			<div class="mx-auto max-w-5xl aspect-video border=none">
 				<iframe 
 				class="w-full h-full rounded-xl shadow-lg"
@@ -114,17 +129,16 @@ const imgDims: Record<string, [number, number]> = {
 				</iframe>
 			</div>
 		</section>
-		<section id="projects" aria-label="Participated in projects" class="bg-[#EEE3CE] py-14">
-			<h2 class="text-center text-5xl font-extrabold mb-20">Experience <span aria-hidden="true">🦴</span></h2>
-				<div class="px-8 md:px-4">
-					<div class="grid gap-6 md:grid-cols-2 auto-rows-auto">
+		<section id="projects" aria-label="Participated in projects" class="bg-[#EEE3CE] py-14 px-4 md:px-8">
+			<h2 class="text-center text-3xl md:text-4xl font-bold mb-20">Experience <span aria-hidden="true">🦴</span></h2>
+				<div class="grid gap-8 md:grid-cols-2 auto-rows-auto">
 						{
 							projects.map(project => {
 								const {slug, data} = project
 								const {title, author, description, img, experience, extra} = data
 								const {youtube, website} = extra
 								return (
-									<article class="w-full flex gap-6 flex-wrap">
+									<article class="w-full flex gap-6 flex-wrap bg-white rounded-xl shadow-lg p-6">
 										<div class="w-full md:w-60 shrink-0">
 										<a href={`/project/${slug}`}class="mb-2 xl:mb-0 transition hover:scale-105 ">
 											<img
@@ -140,11 +154,11 @@ const imgDims: Record<string, [number, number]> = {
 										</div>
 										<div class="relative flex flex-col justify-start flex-1">
 											<div>
-												<a href={`/project/${slug}`}><h2 transition:name={`title-${slug}`} class="mb-2 text-3xl font-bold leading-tight text-[#211B12]">{title}</h2></a>
+												<a href={`/project/${slug}`}><h3 transition:name={`title-${slug}`} class="mb-1 text-2xl font-bold leading-tight text-[#211B12]">{title}</h3></a>
 
-												<h3 class="mb-2 text-2xl leading-tight text-[#211B12]">{author}</h3>
-												<p class="mb-4 text-l leading-tight text-[#211B12]">{experience}</p>
-												<p class="mb-2 text-[#5B5140] max-w-sm">{description} <a href={`/project/${slug}`} class="text-[#C43D12] hover:underline">Read more →</a></p>
+												<p class="mb-1 text-lg font-medium text-[#5B5140]">{author}</p>
+												<p class="mb-4 text-sm text-[#8A7F6A]">{experience}</p>
+												<p class="mb-2 text-[#5B5140] max-w-sm">{description} <a href={`/project/${slug}`} class="text-[#211B12] underline decoration-[#8A7F6A] underline-offset-2 hover:decoration-[#C43D12] transition">Read more →</a></p>
 											</div>
 											<div class="bottom-2 flex gap-4  justify-start">
 												<a href={youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube">
@@ -163,11 +177,19 @@ const imgDims: Record<string, [number, number]> = {
 								)
 							})
 						}
+						{
+							projects.length % 2 !== 0 && (
+								<article class="w-full flex flex-col justify-center items-center text-center gap-4 bg-[#211B12] rounded-xl shadow-lg p-6">
+									<h3 class="text-2xl font-bold text-white">Open to new opportunities</h3>
+									<p class="text-[#EEE3CE] max-w-sm">Currently looking for my next rigging or technical animation role. Let's talk.</p>
+									<a href="https://www.linkedin.com/in/andrewsupertramp/" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#C43D12] text-white hover:bg-[#E85D2C] font-medium px-6 py-3 rounded-lg transition">LinkedIn</a>
+								</article>
+							)
+						}
 					</div>
-				</div>
 		</section>
-		<section id="demos" aria-label="Pipeline and tool demos" class="bg-[#F8F2E7] py-14 px-5 md:px-20">
-			<h2 class="text-center text-5xl font-extrabold mb-16">In Action <span aria-hidden="true">🎬</span></h2>
+		<section id="demos" aria-label="Pipeline and tool demos" class="bg-[#F8F2E7] py-14">
+			<h2 class="text-center text-3xl md:text-4xl font-bold mb-16">In Action <span aria-hidden="true">🎬</span></h2>
 			<div class="space-y-16 max-w-5xl mx-auto">
 				{
 					demos.map((demo, index) => (
@@ -189,11 +211,11 @@ const imgDims: Record<string, [number, number]> = {
 				}
 			</div>
 		</section>
-		<section id="studies" aria-label="Education" class="bg-[#EEE3CE] py-14 px-5 md:px-20">
-			<h2 class="text-center text-5xl font-extrabold mb-10 ">Studies <span aria-hidden="true">🎓</span></h2>
-			<div class="space-y-12">
+		<section id="studies" aria-label="Education" class="bg-[#EEE3CE] py-14 px-4 md:px-8">
+			<h2 class="text-center text-3xl md:text-4xl font-bold mb-10 ">Studies <span aria-hidden="true">🎓</span></h2>
+			<div class="space-y-14">
 				<!-- Lightbox Academy -->
-				<div class="bg-[#FFFFFF] rounded-xl p-6 shadow-md"> 
+				<div class="bg-[#FFFFFF] rounded-xl p-6 shadow-lg"> 
 					<div class="flex flex-col md:flex-row gap-6 items-start">
 						<img src="/logo/lightbox_academy.jpg" alt="Lightbox Academy Logo" width="200" height="200" loading="lazy" decoding="async" class="w-16 h-16 object-contain mt-1" />
 						<div>
@@ -214,7 +236,7 @@ const imgDims: Record<string, [number, number]> = {
 					</div>	
 				</div>
 				<!-- Universidad Rey Juan Carlos -->
-				<div class="bg-[#FFFFFF] rounded-xl p-6 shadow-md"> 
+				<div class="bg-[#FFFFFF] rounded-xl p-6 shadow-lg"> 
 					<div class="flex flex-col md:flex-row gap-6 items-start">
 						<img src="/logo/URJC.jpg" alt="URJC Logo" width="200" height="200" loading="lazy" decoding="async" class="w-16 h-16 object-contain mt-1" />
 						<div>
@@ -227,7 +249,7 @@ const imgDims: Record<string, [number, number]> = {
 					</div>
 				</div>
 				<!-- Udemy Course 1 -->
-				<div class="bg-[#FFFFFF] rounded-xl p-6 shadow-md">
+				<div class="bg-[#FFFFFF] rounded-xl p-6 shadow-lg">
 					<div class="flex flex-col md:flex-row gap-6 items-start">
 						<img src="/logo/Udemy.webp" alt="Udemy Control Rig Course" width="1476" height="1941" loading="lazy" decoding="async" class="w-16 h-16 object-contain mt-1" />
 						<div>
@@ -238,7 +260,7 @@ const imgDims: Record<string, [number, number]> = {
 					</div>
 				</div>
 				<!-- Udemy Course 2 -->
-				<div class="bg-[#FFFFFF] rounded-xl p-6 shadow-md">
+				<div class="bg-[#FFFFFF] rounded-xl p-6 shadow-lg">
 					<div class="flex flex-col md:flex-row gap-6 items-start">
 						<img src="/logo/Udemy.webp" alt="Udemy Procedural Animation Course" width="1476" height="1941" loading="lazy" decoding="async" class="w-16 h-16 object-contain mt-1" />
 						<div>
@@ -251,8 +273,7 @@ const imgDims: Record<string, [number, number]> = {
 			</div>
 		</section>
 		<section id="skills" aria-label="Skills" class="bg-[#F8F2E7] py-14">
-			<div class="px-2 md:px-12 lg:px-20 mx-auto max-w-screen-xl">
-				<h2 class="text-center text-5xl font-extrabold mb-10">Skills <span aria-hidden="true">🧠</span></h2>
+				<h2 class="text-center text-3xl md:text-4xl font-bold mb-10">Skills <span aria-hidden="true">🧠</span></h2>
 				<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
 				<div>
 					<img src="/logo/unreal.webp" alt="Unreal Engine" width="118" height="118" loading="lazy" decoding="async" class="h-12 w-12 object-contain mx-auto mb-2"/>
@@ -279,32 +300,36 @@ const imgDims: Record<string, [number, number]> = {
 					<p class="text-[#211B12]">xSens Mocap</p>
 				</div>
 				</div>
+			<div class="flex flex-wrap justify-center gap-2 max-w-4xl mx-auto px-4 pt-10">
+				{
+					['Rigging', 'Pipeline Development', 'Tool Creation', 'Autodesk Maya', 'Python', 'PySide', 'mGear', '3D Math', 'Full Body & Facial Rigs', 'Skin Weighting', 'Unreal Engine', 'Control Rig', 'Motion Capture', 'Perforce'].map(tag => (
+						<span class="text-sm text-[#211B12] bg-white border border-[#8A7F6A]/40 rounded-full px-3 py-1">{tag}</span>
+					))
+				}
 			</div>
-			<div class="text-[#5B5140] text-center max-w-6xl mx-auto px-4 pt-10 leading-relaxed grid md:grid-cols-2 gap-8">
-				<p class="mb-4 text-justify">
-					<strong>Technical Artist</strong> with solid experience in <span class="text-[#C43D12] font-semibold">rigging</span>, <span class="text-[#C43D12] font-semibold">pipeline development</span>, and <span class="text-[#C43D12] font-semibold">tool creation</span> for animation and real-time production. Proficient in <span class="text-[#C43D12] font-semibold">Autodesk Maya</span>, with strong skills in <span class="text-[#C43D12] font-semibold">Python scripting</span>, <span class="text-[#C43D12] font-semibold">PySide</span> (Qt for UI development), and <span class="text-[#C43D12] font-semibold">mGear</span> for building modular and animator-friendly rigs. Deep understanding of <span class="text-[#C43D12] font-semibold">3D mathematics</span> including transforms, matrices, and vector math applied to rigging and animation systems.
+			<div class="text-[#5B5140] text-center max-w-6xl mx-auto px-4 pt-6 leading-relaxed grid md:grid-cols-2 gap-8">
+				<p class="mb-4 text-justify leading-relaxed">
+					<strong>Technical Artist</strong> with solid experience in <span class="font-semibold text-[#211B12]">rigging</span>, <span class="font-semibold text-[#211B12]">pipeline development</span>, and <span class="font-semibold text-[#211B12]">tool creation</span> for animation and real-time production. Proficient in <span class="font-semibold text-[#211B12]">Autodesk Maya</span>, with strong skills in <span class="font-semibold text-[#211B12]">Python scripting</span>, <span class="font-semibold text-[#211B12]">PySide</span> (Qt for UI development), and <span class="font-semibold text-[#211B12]">mGear</span> for building modular and animator-friendly rigs. Deep understanding of <span class="font-semibold text-[#211B12]">3D mathematics</span> including transforms, matrices, and vector math applied to rigging and animation systems.
 				</p>
-				<p class="mb-4 text-justify">
-					Skilled in creating <span class="text-[#C43D12] font-semibold">full body and facial rigs</span>, and <span class="text-[#C43D12] font-semibold">skin weighting</span> for characters, props, and vehicles. Experienced in integrating assets into <span class="text-[#C43D12] font-semibold">Unreal Engine</span> with support for <span class="text-[#C43D12] font-semibold">Control Rig</span>, Live Link, and <span class="text-[#C43D12] font-semibold">motion capture</span> workflows. Experience at developing custom tools to optimize artist workflows across <span class="text-[#C43D12] font-semibold">rigging</span>, <span class="text-[#C43D12] font-semibold">animation</span>, and <span class="text-[#C43D12] font-semibold">cinematics</span> teams. Familiar with production pipelines, <span class="text-[#C43D12] font-semibold">version control system</span> (Perforce), and collaborative, cross-disciplinary environments.
+				<p class="mb-4 text-justify leading-relaxed">
+					Skilled in creating <span class="font-semibold text-[#211B12]">full body and facial rigs</span>, and <span class="font-semibold text-[#211B12]">skin weighting</span> for characters, props, and vehicles. Experienced in integrating assets into <span class="font-semibold text-[#211B12]">Unreal Engine</span> with support for <span class="font-semibold text-[#211B12]">Control Rig</span>, Live Link, and <span class="font-semibold text-[#211B12]">motion capture</span> workflows. Experience at developing custom tools to optimize artist workflows across <span class="font-semibold text-[#211B12]">rigging</span>, <span class="font-semibold text-[#211B12]">animation</span>, and <span class="font-semibold text-[#211B12]">cinematics</span> teams. Familiar with production pipelines, <span class="font-semibold text-[#211B12]">version control system</span> (Perforce), and collaborative, cross-disciplinary environments.
 				</p>
 				</div>
 		</section>
 		<section id="about" aria-label="About" class="bg-[#EEE3CE] py-14 pb-20">
-			<div class="px-4 md:px-12 lg:px-20 mx-auto max-w-screen-xl">
-				<h2 class="text-center text-5xl font-extrabold mb-10 flex items-center justify-center gap-4">
+				<h2 class="text-center text-3xl md:text-4xl font-bold mb-10 flex items-center justify-center gap-4">
 					About Me <img src="/me.jpeg" alt="Photo of Andrés Felipe" width="200" height="200" loading="lazy" decoding="async" class="w-28 h-28 rounded-full object-cover shadow" />
-					
+
 				</h2>
 				<div class="max-w-3xl mx-auto text-center text-[#211B12]">
 				<p class="text-lg text-[#5B5140] mb-6">
 					I'm a character rigger and technical artist with professional experience working in Madrid, Spain and Edinburgh, Scotland. I enjoy solving complex problems and developing custom rigs and tools to streamline workflows and support efficient production.
 				</p>
-					<p>Connect with me on 
+					<p>Connect with me on
 						<a href="https://www.linkedin.com/in/andrewsupertramp/" target="_blank" rel="noopener noreferrer" class="inline-block text-[#C43D12] hover:text-[#E85D2C] transition text-lg rounded font-medium">
 						LinkedIn</a>
 					</p>
 				</div>
-			</div>
 		</section>
 	</main>
 	<div id="video-overlay" class="fixed inset-0 z-40 hidden bg-black/80"></div>
