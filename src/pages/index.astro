@@ -4,6 +4,15 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 const projects = (await getCollection('projects')).sort((a, b) => a.slug.localeCompare(b.slug))
 
+const navLinks = [
+	{ href: '#reel', label: 'Reel' },
+	{ href: '#projects', label: 'Projects' },
+	{ href: '#demos', label: 'Demos' },
+	{ href: '#studies', label: 'Studies' },
+	{ href: '#skills', label: 'Skills' },
+	{ href: '#about', label: 'About' },
+]
+
 const demos = [
 	{
 		title: 'Vehicle Rigging',
@@ -81,21 +90,26 @@ const imgDims: Record<string, [number, number]> = {
 <Layout title="Andres Felipe Portfolio">
 	<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">Skip to content</a>
 	<nav class="fixed top-0 left-0 w-full bg-gradient-to-b from-[#F8F2E7]/100 to-[#F8F2E7]/50 shadow-md z-50">
-		  <div class="max-w-screen-xl mx-auto px-6 py-4 flex flex-wrap items-center justify-between gap-4 text-[#211B12] text-base md:text-xl lg:text-2xl font-medium">
-			<a href="#reel" class="font-extrabold shrink-0 hover:text-[#E85D2C] transition">AF</a>
-			<div class="flex flex-wrap justify-end gap-4">
-				<a href="#reel" class="hover:text-[#E85D2C] hover:underline transition nav-link">Reel</a>
-				<a href="#projects" class="hover:text-[#E85D2C] hover:underline transition nav-link">Projects</a>
-				<a href="#demos" class="hover:text-[#E85D2C] hover:underline transition nav-link">Demos</a>
-				<a href="#studies" class="hover:text-[#E85D2C] hover:underline transition nav-link">Studies</a>
-				<a href="#skills" class="hover:text-[#E85D2C] hover:underline transition nav-link">Skills</a>
-				<a href="#about" class="hover:text-[#E85D2C] hover:underline transition nav-link">About</a>
-				<a href="https://www.linkedin.com/in/andrewsupertramp/" target="_blank" rel="noopener noreferrer" class="text-base lg:text-lg bg-[#C43D12] text-white hover:bg-[#E85D2C] font-medium px-4 py-2 rounded-lg transition whitespace-nowrap">Hire me</a>
+		  <div class="max-w-screen-xl mx-auto px-6 py-3 md:py-4 text-[#211B12] text-base md:text-xl lg:text-2xl font-medium">
+			<div class="flex items-center justify-between gap-4">
+				<a href="#reel" class="font-extrabold shrink-0 hover:text-[#E85D2C] transition">AF</a>
+				<div class="hidden md:flex flex-wrap justify-end items-center gap-4">
+					{navLinks.map(link => (
+						<a href={link.href} class="hover:text-[#E85D2C] hover:underline transition nav-link">{link.label}</a>
+					))}
+					<a href="https://www.linkedin.com/in/andrewsupertramp/" target="_blank" rel="noopener noreferrer" class="text-base lg:text-lg bg-[#C43D12] text-white hover:bg-[#E85D2C] font-medium px-4 py-2 rounded-lg transition whitespace-nowrap">Hire me</a>
+				</div>
+				<a href="https://www.linkedin.com/in/andrewsupertramp/" target="_blank" rel="noopener noreferrer" class="md:hidden text-base bg-[#C43D12] text-white hover:bg-[#E85D2C] font-medium px-4 py-2 rounded-lg transition whitespace-nowrap shrink-0">Hire me</a>
+			</div>
+			<div class="md:hidden flex gap-5 mt-3 overflow-x-auto whitespace-nowrap [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+				{navLinks.map(link => (
+					<a href={link.href} class="shrink-0 hover:text-[#E85D2C] transition nav-link">{link.label}</a>
+				))}
 			</div>
 		</div>
 	</nav>
 	<main id="main-content" class="px-2 md:px-4 lg:px-20 mx-auto max-w-screen-xl">
-		<section id="reel" class="text-center bg-[#F8F2E7] py-24">
+		<section id="reel" class="text-center bg-[#F8F2E7] pt-36 pb-24 md:pt-24">
 			<div class="max-w-2xl mx-auto text-left mb-14">
 				<h1 class="text-5xl font-extrabold">Andrés Felipe</h1>
 				<p class="text-2xl mb-4">Technical Animator / Rigger</p>
